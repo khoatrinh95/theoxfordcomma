@@ -86,6 +86,21 @@ nav.scrolled .nav-logo {
   color: var(--accent);
 }
 
+.nav-logo .p1 { color: #E40303; }
+.nav-logo .p2 { color: #FF8C00; }
+.nav-logo .p3 { color: #FFED00; }
+.nav-logo .p4 { color: #008026; }
+.nav-logo .p5 { color: #004DFF; }
+.nav-logo .p6 { color: #750787; }
+.nav-logo .pride-comma { color: var(--accent); }
+
+nav.scrolled .nav-logo .p1,
+nav.scrolled .nav-logo .p2,
+nav.scrolled .nav-logo .p3,
+nav.scrolled .nav-logo .p4,
+nav.scrolled .nav-logo .p5,
+nav.scrolled .nav-logo .p6 { filter: brightness(0.8); }
+
 .nav-cta {
   font-size: 0.8rem;
   font-weight: 500;
