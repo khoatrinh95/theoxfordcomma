@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-T5JSSHBG');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are You Ready for Europe? — The Oxford Comma</title>
+  <meta name="description"
+    content="Find out if your Canadian tech company is ready for European expansion. 13 questions, 3 minutes, a personalised readiness score and market recommendation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="eu-readiness.css">
+  <script src="scripts/config.js"></script>
+  <script src="scripts/components.js" defer></script>
+  <script src="scripts/quiz.js" defer></script>
+</head>
+
+<body class="quiz-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5JSSHBG" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Nav injected here by components.js -->
+  <div id="nav-placeholder"></div>
+
+  <main class="quiz-main" style="padding-top: 80px;">
+
+    <!-- Screen 1: Intro -->
+    <div class="quiz-screen active" id="screen-intro">
+      <div class="intro-grid"></div>
+      <div class="intro-inner">
+        <div class="intro-pill">
+          <span class="intro-pill-dot"></span>
+          EU Readiness Calculator
+        </div>
+        <h1 class="intro-headline">
+          Are you ready<br>for <em>Europe?</em>
+        </h1>
+        <p class="intro-sub">
+          Thinking about European expansion? Find out if you're ready, where to go, and who pays for it.
+        </p>
+        <div class="intro-meta">
+          <div class="intro-meta-item"><span>13</span> questions</div>
+          <div class="intro-meta-item"><span>~3</span> minutes</div>
+          <div class="intro-meta-item"><span>Free</span> score</div>
+        </div>
+        <button class="btn-start" onclick="startQuiz()">
+          Find out now
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 2: Questions -->
+    <div class="quiz-screen" id="screen-questions">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-bar" id="progressBar"></div>
+        </div>
+        <span class="quiz-progress-label" id="progressLabel">0 of 13</span>
+      </div>
+      <div id="questionContainer" style="padding: 4rem 3rem; max-width: 640px; margin: 0 auto; width: 100%;"></div>
+    </div>
+
+    <!-- Screen 3: Score reveal -->
+    <div class="quiz-screen" id="screen-score">
+      <div class="intro-grid"></div>
+      <div class="score-inner">
+        <div class="score-label">Your readiness score</div>
+        <div class="score-display">
+          <div class="score-number-wrap">
+            <span class="score-counter" id="scoreCounter">0.0</span>
+            <span class="score-denom">/10</span>
+          </div>
+        </div>
+        <div class="score-band-label" id="scoreBand"></div>
+        <p class="score-body-text" id="scoreBody"></p>
+        <div class="score-resource" id="scoreResource"></div>
+        <div class="email-gate">
+          <div class="email-gate-label">Get your full result</div>
+          <div class="email-gate-headline">Which market fits you. What funding is available. A warm introduction to the
+            right people.</div>
+          <p class="email-gate-sub">Enter your email to unlock your personalised market recommendation and funding
+            guide.</p>
+          <div class="email-gate-row">
+            <input type="email" class="email-gate-input" id="emailInput" placeholder="your@company.com"
+              autocomplete="email" onkeydown="if(event.key==='Enter') submitEmail()">
+            <button class="email-gate-btn" id="emailSubmitBtn" onclick="submitEmail()">
+              Unlock result
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <div class="email-error" id="emailError"></div>
+          <div class="email-privacy-note">No spam. No phone number. No company size form. We already know enough from
+            your answers.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 4: Full result -->
+    <div class="quiz-screen" id="screen-result">
+      <div class="result-header">
+        <div class="intro-grid"></div>
+        <div class="result-header-inner">
+          <div class="result-score-pill" id="resultScoreSummary"></div>
+          <h2 class="result-headline">Here's where<br>you <em>land.</em></h2>
+          <p class="result-subhead">Your personalised European market recommendation, funding guide, and next step.</p>
+        </div>
+      </div>
+      <div class="result-section">
+        <div class="result-section-inner">
+          <div class="result-section-label">Recommended market</div>
+          <div class="market-block">
+            <div class="market-flag" id="resultMarketFlag"></div>
+            <div>
+              <div class="market-name" id="resultMarketName"></div>
+              <p class="market-body" id="resultMarketBody"></p>
+              <div class="market-meta-row">
+                <div class="market-meta-item">
+                  <strong>Partner</strong>
+                  <span id="resultMarketPartner"></span>
+                </div>
+                <div class="market-meta-item">
+                  <strong>Grants</strong>
+                  <span id="resultMarketGrants"></span> — verify current eligibility at launch.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result-section" style="background: #faf8f4;">
+        <div class="result-section-inner">
+          <div class="result-section-label">Funding & partners</div>
+          <p class="funding-body" id="resultFundingCopy"></p>
+          <div class="funding-note">
+            The Oxford Comma makes warm introductions to NFIA and Berlin Partner as part of our Strategic engagement —
+            the same introductions our paying clients receive.
+          </div>
+        </div>
+      </div>
+      <div class="result-section" id="resultBriefBlock">
+        <div class="result-section-inner">
+          <div class="result-section-label">Your sector brief</div>
+          <div class="brief-card">
+            <div class="brief-card-info">
+              <div class="brief-card-label">European Market Brief</div>
+              <div class="brief-card-name" id="resultBriefName"></div>
+            </div>
+            <a class="brief-download-btn" id="resultBriefLink" href="#" download>
+              Download PDF
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                <path d="M8 3v7M5 8l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="result-section" style="background: var(--black);">
+        <div class="result-section-inner">
+          <div class="result-section-label" style="color: var(--accent);">Next step</div>
+          <div class="result-cta-block">
+            <a class="result-cta-btn" id="resultCta" href="mailto:contact@theoxfordcomma.agency">
+              <span id="resultCtaLabel">Talk to us</span>
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <button class="result-restart-btn" onclick="restartQuiz()">↺ Retake the quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <!-- Footer injected here by components.js -->
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

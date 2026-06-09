@@ -1,4 +1,4 @@
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbysvsIQ7WV1WDdt-6Wl8iVw1WHd8gjbdS4bsiBnMAvBKTsoU__lCR1YXN3WyoMgWYLrhQ/exec';
+const SCRIPT_URL = TOC_CONFIG.APPS_SCRIPT_URL;
 
 const selectors = {
   cursor: '#cursor',
@@ -31,37 +31,7 @@ function getAll(selector) {
   return Array.from(document.querySelectorAll(selector));
 }
 
-function initCursor() {
-  const cursor = get(selectors.cursor);
-  if (!cursor) return;
 
-  document.addEventListener('mousemove', event => {
-    cursor.style.left = `${event.clientX}px`;
-    cursor.style.top = `${event.clientY}px`;
-  });
-
-  const interactiveElements = getAll(
-    'a, button, .industry-item, .step, .team-item, input, select, textarea, .tag'
-  );
-
-  interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => cursor.classList.add(classes.expanded));
-    element.addEventListener('mouseleave', () => cursor.classList.remove(classes.expanded));
-  });
-}
-
-function initNavbarScroll() {
-  const navbar = get(selectors.navbar);
-  if (!navbar) return;
-
-  window.addEventListener(
-    'scroll',
-    () => {
-      navbar.classList.toggle(classes.scrolled, window.scrollY > 60);
-    },
-    { passive: true }
-  );
-}
 
 function initRevealAnimations() {
   const items = getAll(selectors.revealItems);
@@ -272,8 +242,6 @@ function initContactForm() {
 }
 
 function initializeApp() {
-  initCursor();
-  initNavbarScroll();
   initRevealAnimations();
   initCounters();
   initFloatingLabels();

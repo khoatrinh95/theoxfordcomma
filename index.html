@@ -17,6 +17,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="scripts/config.js"></script>
+<script src="scripts/components.js" defer></script>
 <script src="scripts/app.js" defer></script>
 </head>
 <body>
@@ -25,13 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<div class="cursor" id="cursor"></div>
-
-<!-- Nav -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo"><span class="p1">T</span><span class="p2">h</span><span class="p3">e</span> <span class="p4">O</span><span class="p5">x</span><span class="p6">f</span><span class="p1">o</span><span class="p2">r</span><span class="p3">d</span> <span class="p4">C</span><span class="p5">o</span><span class="p6">m</span><span class="p1">m</span><span class="p2">a</span><span class="pride-comma">,</span></a>
-  <a href="#contact" class="nav-cta">Get in touch</a>
-</nav>
+<div id="nav-placeholder"></div>
 
 <!-- Hero -->
 <section id="hero">
@@ -54,6 +50,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Book free consultation
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
+      <a href="eu-readiness.html" class="btn-primary" style="background: transparent; border: 1px solid rgba(216,90,48,0.4); color: var(--accent);">
+    Test your readiness
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
       <span class="hero-scroll">
         <span class="hero-scroll-line"></span>
         Scroll to explore
@@ -327,14 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- Footer -->
-<footer>
-  <span class="footer-logo">The Oxford Comma<span>,</span></span>
-  <div class="footer-links">
-    <a href="#" class="footer-link" data-action="open-privacy">Privacy policy</a>
-    <a href="mailto:contact@theoxfordcomma.agency" class="footer-link">contact@theoxfordcomma.agency</a>
-  </div>
-  <span class="footer-copy">© 2026 The Oxford Comma. All rights reserved.</span>
-</footer>
+<div id="footer-placeholder"></div>
 
 <!-- Privacy modal -->
 <div class="modal-overlay" id="privacyModal" onclick="closePrivacyOutside(event)">
