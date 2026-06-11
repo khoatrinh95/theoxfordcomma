@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  The Oxford Comma — components.js
+//  The Oxford Comma - components.js
 //  Loads shared nav and footer fragments so
 //  they only need to be edited in one place.
 // ─────────────────────────────────────────────
@@ -83,7 +83,7 @@
         // Determine base path so fragments resolve
         // correctly regardless of folder depth.
         // For a flat repo (all files in root) this
-        // is always '' — adjust if you add subfolders.
+        // is always '' - adjust if you add subfolders.
         var base = '';
 
         var navDone = false;

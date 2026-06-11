@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  The Oxford Comma — EU Readiness Quiz
+//  The Oxford Comma - EU Readiness Quiz
 //  quiz.js
 // ─────────────────────────────────────────────
 
@@ -14,9 +14,9 @@ const QUESTIONS = [
         text: 'Have you established product-market fit in Canada?',
         type: 'score',
         options: [
-            { label: 'Yes — clear and growing demand', points: 20, cap: null },
+            { label: 'Yes - clear and growing demand', points: 20, cap: null },
             { label: 'Early signs, not yet proven', points: 8, cap: null },
-            { label: 'Not yet — still finding it', points: 0, cap: 4.0 },
+            { label: 'Not yet - still finding it', points: 0, cap: 4.0 },
         ],
     },
     {
@@ -35,7 +35,7 @@ const QUESTIONS = [
         text: 'Are European customers already finding you?',
         type: 'score',
         options: [
-            { label: 'Yes — we have paying customers in Europe', points: 15 },
+            { label: 'Yes - we have paying customers in Europe', points: 15 },
             { label: 'Inbound interest or sign-ups, not yet paying', points: 11 },
             { label: 'No inbound yet, but we see the demand', points: 5 },
             { label: 'None of this yet', points: 0 },
@@ -48,7 +48,7 @@ const QUESTIONS = [
         options: [
             { label: 'Budget is already ring-fenced for it', points: 15 },
             { label: '18+ months of runway, not yet allocated', points: 11 },
-            { label: 'Under 18 months — we would need to raise or reallocate', points: 5 },
+            { label: 'Under 18 months - we would need to raise or reallocate', points: 5 },
             { label: 'No budget identified yet', points: 0 },
         ],
     },
@@ -81,8 +81,8 @@ const QUESTIONS = [
         type: 'score',
         options: [
             { label: 'Already aligned to GDPR-grade standards', points: 5 },
-            { label: 'Low-sensitivity product — minimal compliance lift needed', points: 4 },
-            { label: 'We handle regulated or personal data — work still needed', points: 2 },
+            { label: 'Low-sensitivity product - minimal compliance lift needed', points: 4 },
+            { label: 'We handle regulated or personal data - work still needed', points: 2 },
             { label: 'Unsure', points: 1 },
         ],
     },
@@ -252,7 +252,7 @@ function getBandCopy(band, score) {
     if (band === 'start-planning') {
         return {
             headline: `You scored ${s}/10`,
-            body: `You have a real shot at Europe, and the smart move now is to plan before you leap. The question is not whether, it is which market — and what the opportunity is actually worth in revenue. That is exactly what a Diagnostic answers: a go or no-go on one market, sized in revenue, in two to three weeks.`,
+            body: `You have a real shot at Europe, and the smart move now is to plan before you leap. The question is not whether, it is which market - and what the opportunity is actually worth in revenue. That is exactly what a Diagnostic answers: a go or no-go on one market, sized in revenue, in two to three weeks.`,
             resource: null,
             cta: 'mailto:contact@theoxfordcomma.agency?subject=Diagnostic%20enquiry',
             ctaLabel: 'Start with a Diagnostic',
@@ -261,7 +261,7 @@ function getBandCopy(band, score) {
     // talk-to-us
     return {
         headline: `You scored ${s}/10`,
-        body: `You are ready. You have the product, the proof, and the means to make Europe work — and the cost of waiting is a competitor getting there first. Below is where we would start you and who would help fund it.`,
+        body: `You are ready. You have the product, the proof, and the means to make Europe work - and the cost of waiting is a competitor getting there first. Below is where we would start you and who would help fund it.`,
         resource: null,
         cta: 'mailto:contact@theoxfordcomma.agency?subject=Ready%20to%20launch%20in%20Europe',
         ctaLabel: 'Let\'s build the plan',
@@ -283,7 +283,7 @@ function getMarketCopy(market) {
             flag: '🇩🇪',
             name: 'Germany',
             partner: 'Berlin Partner für Wirtschaft und Technologie',
-            body: 'For a company like yours, Germany is the prize worth the work. It is the largest economy in Europe and the deepest market for what you sell. Companies that win there commit to the language and the longer sale — you are built for that.',
+            body: 'For a company like yours, Germany is the prize worth the work. It is the largest economy in Europe and the deepest market for what you sell. Companies that win there commit to the language and the longer sale - you are built for that.',
             grants: 'Horizon Europe, EXIST, Berlin regional grants',
         };
     }
@@ -293,14 +293,14 @@ function getMarketCopy(market) {
         name: 'Netherlands, then Germany',
         partner: 'NFIA for your first market, Berlin Partner as you scale',
         body: 'Start in the Netherlands, then take Germany next. The lighter landing proves the model and de-risks the market that really moves your numbers.',
-        grants: 'WBSO R&D tax credit, Invest-NL, Horizon Europe — with German grant eligibility as you expand',
+        grants: 'WBSO R&D tax credit, Invest-NL, Horizon Europe - with German grant eligibility as you expand',
     };
 }
 
 function getFundingCopy(route) {
-    if (route === 'nondilutive') return 'Given how you\'re funded, we\'d lead with non-dilutive grants — there\'s money on the table most founders never find on their own.';
-    if (route === 'vc') return 'We\'d pair the soft-landing partner support with local follow-on investor introductions — the kind that only come through warm relationships.';
-    return 'We\'d blend non-dilutive grant support with soft-landing partner introductions — the right mix for where you are today.';
+    if (route === 'nondilutive') return 'Given how you\'re funded, we\'d lead with non-dilutive grants - there\'s money on the table most founders never find on their own.';
+    if (route === 'vc') return 'We\'d pair the soft-landing partner support with local follow-on investor introductions - the kind that only come through warm relationships.';
+    return 'We\'d blend non-dilutive grant support with soft-landing partner introductions - the right mix for where you are today.';
 }
 
 // ─── UI helpers ─────────────────────────────
@@ -386,7 +386,7 @@ function selectOption(questionIndex, optionIndex) {
 
     state.answers[q.id] = { ...opt, label: opt.label };
 
-    // Update UI — highlight selected, enable next
+    // Update UI - highlight selected, enable next
     document.querySelectorAll('.quiz-option').forEach((btn, i) => {
         btn.classList.toggle('selected', i === optionIndex);
     });
@@ -405,7 +405,7 @@ function goNext() {
         state.currentIndex++;
         renderQuestion(state.currentIndex);
     } else {
-        // All questions answered — calculate and show score reveal
+        // All questions answered - calculate and show score reveal
         calculateScore();
         calculateRouting();
         showScoreReveal();
@@ -514,7 +514,7 @@ function submitEmail() {
             showFullResult();
         })
         .catch(() => {
-            // If submission fails, still show the result — don't block the user
+            // If submission fails, still show the result - don't block the user
             showFullResult();
         });
 }
@@ -573,7 +573,7 @@ function showFullResult() {
     if (state.sectorBrief && briefBlock && briefLink) {
         const label = briefLabels[state.sectorBrief] || state.sectorBrief;
         if (briefName) briefName.textContent = label;
-        // Brief PDFs: /briefs/{key}.pdf — placeholder until files exist
+        // Brief PDFs: /briefs/{key}.pdf - placeholder until files exist
         briefLink.href = `/briefs/${state.sectorBrief}.pdf`;
         briefBlock.style.display = 'block';
     } else if (briefBlock) {
@@ -583,7 +583,7 @@ function showFullResult() {
     // Score summary in result header
     const resultScoreEl = document.getElementById('resultScoreSummary');
     if (resultScoreEl) {
-        resultScoreEl.textContent = `${state.score.toFixed(1)}/10 — ${state.band === 'not-ready' ? 'Not ready yet' : state.band === 'start-planning' ? 'Start planning' : 'Talk to us now'}`;
+        resultScoreEl.textContent = `${state.score.toFixed(1)}/10 - ${state.band === 'not-ready' ? 'Not ready yet' : state.band === 'start-planning' ? 'Start planning' : 'Talk to us now'}`;
     }
 }
 
