@@ -882,6 +882,17 @@
     transform: translateX(4px);
 }
 
+.result-cta-btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.result-cta-btn-secondary:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
 .result-restart-btn {
     background: none;
     border: none;

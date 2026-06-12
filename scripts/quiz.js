@@ -245,8 +245,10 @@ function getBandCopy(band, score) {
             headline: `You scored ${s}/10`,
             body: `Europe is a real ambition, and right now the foundations are not quite under it. Nothing is worse than spending a year and a budget on a market before the home base is solid. Lock in product-market fit in Canada, get an owner on the expansion, and come back. When you do, our Diagnostic will size the opportunity properly.`,
             resource: `<a href="https://www.bdc.ca/en/articles-tools/marketing-sales-export/marketing/how-to-find-markets-for-your-new-product" target="_blank" rel="noopener">Read this BDC article</a> to strengthen your foundations. Let us know if you'd like us to connect you with Canadian advisors who can help on the way.`,
-            cta: null,
-            ctaLabel: null,
+            cta: 'https://www.bdc.ca/en/articles-tools/marketing-sales-export/marketing/how-to-find-markets-for-your-new-product',
+            ctaLabel: 'Read the BDC guide',
+            cta2: 'https://www.linkedin.com/company/the-oxford-comma-agency/',
+            ctaLabel2: 'Follow us on LinkedIn',
         };
     }
     if (band === 'start-planning') {
@@ -550,11 +552,23 @@ function showFullResult() {
     const ctaLabel = document.getElementById('resultCtaLabel');
     if (ctaEl && bandCopy.cta) {
         ctaEl.href = bandCopy.cta;
+        ctaEl.target = bandCopy.cta.startsWith('mailto:') ? '_self' : '_blank';
         ctaEl.style.display = 'inline-flex';
     } else if (ctaEl) {
         ctaEl.style.display = 'none';
     }
     if (ctaLabel && bandCopy.ctaLabel) ctaLabel.textContent = bandCopy.ctaLabel;
+
+    // Secondary CTA (e.g. LinkedIn follow for the "not ready" band)
+    const cta2El = document.getElementById('resultCta2');
+    const cta2Label = document.getElementById('resultCta2Label');
+    if (cta2El && bandCopy.cta2) {
+        cta2El.href = bandCopy.cta2;
+        if (cta2Label) cta2Label.textContent = bandCopy.ctaLabel2;
+        cta2El.style.display = 'inline-flex';
+    } else if (cta2El) {
+        cta2El.style.display = 'none';
+    }
 
     // Sector brief download
     const briefBlock = document.getElementById('resultBriefBlock');
